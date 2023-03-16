@@ -1,11 +1,12 @@
-import java.util.Objects;
+package GENETIC_TSP;
 
 public class GeneTSP {
 
     private int x;
-    private int y;
-    static final int DIMENSIONS = 100; // Keep it even , not odd
 
+    private int y;
+
+    static final int DIMENSIONS = 40;
 
     public GeneTSP(int x, int y) {
         this.x = x;
@@ -37,10 +38,5 @@ public class GeneTSP {
         if (o == null || getClass() != o.getClass()) return false;
         GeneTSP tspGene = (GeneTSP) o;
         return x == tspGene.x && y == tspGene.y;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(x, y);
     }
 }
