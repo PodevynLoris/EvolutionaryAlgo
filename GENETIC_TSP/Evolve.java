@@ -1,7 +1,8 @@
 package GENETIC_TSP;
 
-import java.util.TimerTask;
-import java.util.Timer;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Evolve {
 
@@ -15,10 +16,11 @@ public class Evolve {
         population = new Population();
 
         FitnessChartSwing chart = new FitnessChartSwing(); // Corrected the class name
-        TimerTask updateTask = new TimerTask() {
+        Timer timer = new Timer((int) delay, new ActionListener() {
             private int generation = 0;
+
             @Override
-            public void run() {
+            public void actionPerformed(ActionEvent e) {
                 double fitness = 0.0;
                 population.evaluatePopulation();
                 population.generateNewPopulation(PRc, PRm);
@@ -28,9 +30,9 @@ public class Evolve {
 
                 chart.updateChart(fitness, bestSoFarFitness, generation++);
             }
-        };
-        Timer timer = new Timer();
-        timer.schedule(updateTask, 0, delay);
+        });
+        timer.setRepeats(true);
+        timer.start();
     }
 
     public static void main(String[] args) {
