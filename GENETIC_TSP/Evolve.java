@@ -1,12 +1,14 @@
 package GENETIC_TSP;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Evolve {
 
-    private static final int PRc = 80;
+    private static final int PRc =80;
+
     private static final int PRm = 5;
 
     private Population population;
@@ -14,8 +16,11 @@ public class Evolve {
     public void startEvolution(long delay) {
 
         population = new Population();
+        System.out.println(population);
+        // population.toString() ;
+        FramePoints p = new FramePoints(population) ;
 
-        FitnessChartSwing chart = new FitnessChartSwing(); // Corrected the class name
+        // FitnessChartSwing chart = new FitnessChartSwing(); // Corrected the class name
         Timer timer = new Timer((int) delay, new ActionListener() {
             private int generation = 0;
 
@@ -28,7 +33,14 @@ public class Evolve {
                 fitness = population.getBestGenomeOfCurrentPopulation().getFitness();
                 double bestSoFarFitness = population.getBestGenome().getFitness();
 
-                chart.updateChart(fitness, bestSoFarFitness, generation++);
+                p.getLinedem().repaint();
+
+
+                //chart.updateChart(fitness, bestSoFarFitness, generation++);
+                p.updateChart(fitness,bestSoFarFitness,generation++);
+                //  System.out.println(population);
+                System.out.println("--------------------------------NEW ITERATION :"+generation);
+                System.out.println(population.getBestGenome());
             }
         });
         timer.setRepeats(true);
@@ -37,6 +49,6 @@ public class Evolve {
 
     public static void main(String[] args) {
         Evolve evolve = new Evolve();
-        evolve.startEvolution(10);
+        evolve.startEvolution(5);
     }
 }

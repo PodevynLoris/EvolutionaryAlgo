@@ -6,11 +6,14 @@ public class GeneTSP {
 
     private int y;
 
+    private int label ;
+
     static final int DIMENSIONS = 40;
 
     public GeneTSP(int x, int y) {
         this.x = x;
         this.y = y;
+        this.label = 0 ;
     }
 
     public int getX() {
@@ -38,5 +41,13 @@ public class GeneTSP {
         if (o == null || getClass() != o.getClass()) return false;
         GeneTSP tspGene = (GeneTSP) o;
         return x == tspGene.x && y == tspGene.y;
+    }
+
+    public void setLabel(int i ){
+        label = i ;
+    }
+
+    public int getLabel(){
+        return label ;
     }
 }

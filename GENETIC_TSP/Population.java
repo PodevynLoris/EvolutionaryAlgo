@@ -2,7 +2,7 @@ package GENETIC_TSP;
 import java.util.*;
 
 public class Population {
-    public static final int M = 100;
+    public static final int M = 1000;
 
     public List<GENETIC_TSP.GenomeTSP> population;
 
