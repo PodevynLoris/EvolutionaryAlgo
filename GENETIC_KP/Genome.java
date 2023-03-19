@@ -17,7 +17,7 @@ public class Genome {
     private final List<GENETIC_KP.Gene> genome;
     public static int N = 50;
     private double fitnessKP;
-
+    public int CAPACITY =20;
     public Genome(List<GENETIC_KP.Gene> genome) {
         this.genome = Collections.unmodifiableList(genome);
         this.fitnessKP  = 0.0;
@@ -38,7 +38,7 @@ public class Genome {
     }
 
     public int getCAPACITY() {
-        return N;
+        return CAPACITY;
     }
 
     public static Genome createGenome() {

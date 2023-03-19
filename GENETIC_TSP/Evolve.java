@@ -88,6 +88,6 @@ public class Evolve {
 
     public static void main(String[] args) {
         Evolve evolve = new Evolve();
-        evolve.startEvolution(5);
+        evolve.startEvolution(100);
     }
 }
