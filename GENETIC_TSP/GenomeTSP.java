@@ -6,15 +6,15 @@ public class GenomeTSP {
 
     private  List<GENETIC_TSP.GeneTSP> genome;
 
-    public static int N = 50;
+    public static int N = 20;
 
-    private double fitness;
+    private double fitnessTSP;
 
     private GeneTSP [] ordered ;
 
     public GenomeTSP() {
         this.genome = new ArrayList<>(N);
-        this.fitness = 0.0;
+        this.fitnessTSP = 0.0;
         // fillOrdered();
     }
 
@@ -22,15 +22,14 @@ public class GenomeTSP {
         this.genome = genome;
         fillOrdered();
         fitnessTSP();
-
     }
 
     public List<GENETIC_TSP.GeneTSP> getGenome() {
         return genome;
     }
 
-    public double getFitness() {
-        return fitness;
+    public double getFitnessTSP() {
+        return fitnessTSP;
     }
 
     static GenomeTSP createGenome() {
@@ -78,7 +77,7 @@ public class GenomeTSP {
             fitness += GENETIC_TSP.Utils.euclideanDistance(this.genome.get(i),this.genome.get(i+1));
         }
         fitness += GENETIC_TSP.Utils.euclideanDistance(this.genome.get(this.getGenome().size()-1),this.getGenome().get(0));
-        this.fitness = 1/fitness;
+        this.fitnessTSP = 1/fitness;
     }
 
     public void mutateTSP() {
@@ -257,7 +256,7 @@ public class GenomeTSP {
         for(final GENETIC_TSP.GeneTSP gene : this.genome) {
             builder.append(gene.toString()).append((" "));
         }
-        builder.append("Fitness score: ").append(this.fitness);
+        builder.append("Fitness score: ").append(this.fitnessTSP);
         return builder.toString();
     }
 

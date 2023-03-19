@@ -2,15 +2,14 @@ package GENETIC_TSP;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class TestForCrossOver {
 
     public static void main(String[] args) {
         Population p = new Population();
         System.out.println(p);
-        GenomeTSP parent1 = p.getPopulation().get(0);
-        GenomeTSP parent2 = p.getPopulation().get(1);
+        GenomeTSP parent1 = p.getPopulationTSP().get(0);
+        GenomeTSP parent2 = p.getPopulationTSP().get(1);
         List<GenomeTSP> children = new ArrayList<>();
         children = parent1.crossoverTSP(parent2);
         System.out.println(children.get(0));

@@ -3,8 +3,6 @@ package GENETIC_TSP;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
-import java.awt.geom.Point2D;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class LineDemo extends JPanel {
@@ -55,11 +53,11 @@ public class LineDemo extends JPanel {
     }
 
     public void UpdateGenome(){
-        genome = population.getBestGenome();
+        genome = population.getBestGenomeTSP();
     }
 
     public void UpdateGenomeCurrent(){
-        genomeCurrent = population.getBestGenomeOfCurrentPopulation();
+        genomeCurrent = population.getBestGenomeOfCurrentPopulationTSP();
     }
 
 
