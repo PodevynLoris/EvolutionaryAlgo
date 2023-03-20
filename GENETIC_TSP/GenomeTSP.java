@@ -6,7 +6,7 @@ public class GenomeTSP {
 
     private  List<GENETIC_TSP.GeneTSP> genome;
 
-    public static int N = 20;
+    public static int N = 15;
 
     private double fitnessTSP;
 
@@ -15,7 +15,6 @@ public class GenomeTSP {
     public GenomeTSP() {
         this.genome = new ArrayList<>(N);
         this.fitnessTSP = 0.0;
-        // fillOrdered();
     }
 
     public GenomeTSP(List<GENETIC_TSP.GeneTSP> genome) {
@@ -43,6 +42,31 @@ public class GenomeTSP {
         GenomeTSP genome = new GenomeTSP(list);
         return genome;
     }
+    static GenomeTSP createSolution() {
+        List<GeneTSP> list = new ArrayList<>();
+        list.add(new GeneTSP(29,20));
+        list.add(new GeneTSP (18,29));
+        list.add(new GeneTSP(10,21));
+        list.add(new GeneTSP(27,26));
+        list.add(new GeneTSP(26,12));
+        list.add(new GeneTSP(16,10));
+        list.add(new GeneTSP(10,18));
+        list.add(new GeneTSP (29,22));
+        list.add(new GeneTSP(15,29));
+        list.add(new GeneTSP(24,11));
+        list.add(new GeneTSP(23,10));
+        list.add(new GeneTSP (10,22));
+        list.add(new GeneTSP(29,17));
+        list.add(new GeneTSP(21,29));
+        list.add(new GeneTSP(13,12));
+        for(int i =0; i<list.size(); i++) {
+            list.get(i).setLabel(i);
+        }
+        return new GenomeTSP(list);
+        //Optimal solution :  (26,12) (29,17) (29,20) (29,22) (27,26) (21,29) (18,29) (15,29) (10,22) (10,21) (10,18) (13,12) (16,10) (23,10) (24,11) Fitness score: 0.016239657381117947
+    }
+
+
 
     static GenomeTSP createGenomeCircle() {
         Random random = new Random();

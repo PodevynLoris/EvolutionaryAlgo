@@ -4,15 +4,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-// Add the following imports
 
 public class Evolve {
 
 
-
-
     public static int choice = 0;
-    private static final int PRc= 70;
+    private static final int PRc= 50;
     private static final int PRm = 5;
     public static int CAPACITY = 879;
 
@@ -24,6 +21,11 @@ public class Evolve {
 
     public Evolve(MainFrame frame){
         this.frame = frame ;
+        population = new Population();
+    }
+    public Evolve(MainFrame frame, int choice) {
+        this.frame = frame;
+        this.choice = choice;
         population = new Population();
     }
 
@@ -70,7 +72,7 @@ public class Evolve {
             //population = new Population();
             //System.out.println(population);
             // population.toString() ;
-            FitnessChartSwing f = new FitnessChartSwing();
+           // FitnessChartSwing f = new FitnessChartSwing();
 
             // FitnessChartSwing chart = new FitnessChartSwing(); // Corrected the class name
             Timer timer = new Timer((int) delay, new ActionListener() {
@@ -88,8 +90,8 @@ public class Evolve {
                     //chart.updateChart(fitness, bestSoFarFitness, generation++);
 
                     //  System.out.println(population);
-                    f.updateChart(fitness,bestSoFarFitness,generation++);
-                    frame.getKSframe().updateChart(fitness,bestSoFarFitness,generation);
+                   // f.updateChart(fitness,bestSoFarFitness,generation++);
+                    frame.getKSframe().updateChart(fitness,bestSoFarFitness,generation++);
 
                     //System.out.println("--------------------------------NEW ITERATION :"+generation);
                     System.out.println(population.getBestGenomeOfCurrentPopulationKP());

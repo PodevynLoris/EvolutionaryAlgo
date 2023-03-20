@@ -110,7 +110,7 @@ public class KSframe extends JFrame {
         settingPanel.setBackground(new Color(224, 178, 129));
         settingPanel.setLayout(new BoxLayout(settingPanel, BoxLayout.PAGE_AXIS));
         settingPanel.setVisible(true);
-        parameter1();
+        //parameter1();
         createStartButton();
 
 

@@ -1,15 +1,17 @@
 package GENETIC_TSP;
 
+
 import java.util.HashMap;
 import java.util.Map;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-public class KPSimulation {
-    private static final int NUM_TRIALS = 14;
+
+public class TSPSimulation {
+    private static final int NUM_TRIALS = 10;
     private Map<String, Integer> results = new HashMap<>();
 
-    public KPSimulation() {
+    public TSPSimulation() {
     }
 
     public void runMultipleTrials(int[] crossoverValues, int[] mutationValues, int[] populationSizes) {
@@ -30,16 +32,18 @@ public class KPSimulation {
     }
 
     public int runSingleTrial(int prc, int prm, int popSize) {
-        Evolve evolve = new Evolve(null, 0);
-        Population population = new Population(popSize);
+        Evolve evolve = new Evolve(null, 1);
+
+        evolve.setChoice(1);
+        Population population = new Population(popSize,true);
         int generation = 0;
         double bestFitness = 0.0;
-        int targetFitness = 1025;
+        double targetFitness = 0.016238657381117947;
 
         while (bestFitness < targetFitness) {
-            population.evaluatePopulationKP();
-            population.generateNewPopulationKP(prc, prm);
-            bestFitness = population.getBestGenomeKP().getFitnessKP();
+            population.evaluatePopulationTSP();
+            population.generateNewPopulationTSP(prc, prm);
+            bestFitness = population.getBestGenomeTSP().getFitnessTSP();
             generation++;
         }
 
@@ -58,13 +62,12 @@ public class KPSimulation {
     }
 
     public static void main(String[] args) {
-        KPSimulation simulation = new KPSimulation();
+        TSPSimulation simulation = new TSPSimulation();
         // Run experiments with varying parameters
         int[] crossoverValues = {50, 60, 70, 80, 90, 100};
         int[] mutationValues = {5, 10, 15, 20};
         int[] populationSizes = {50, 100, 1000};
         simulation.runMultipleTrials(crossoverValues, mutationValues, populationSizes);
-        simulation.saveResultsToFile("simulation_results.txt");
-
+        simulation.saveResultsToFile("tsp_simulation_results.txt");
     }
 }

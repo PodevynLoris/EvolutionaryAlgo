@@ -15,7 +15,7 @@ public class Population {
     Genome bestGenomeKP = new Genome();
     //TODO THERE MIGHT BE A PROBLEM WHEN USING THIS genome because its a new constructor I had to create, with NO parameter, we use it in evaluatePopulationKP
     public Population() {
-        this(5); // Default population size
+        this(200); // Default population size
     }
     public Population(int populationSize) {
         this.M = populationSize;
@@ -27,6 +27,13 @@ public class Population {
             this.populationTSP = null;
         }
     }
+
+    public Population(int populationSize,Boolean a) {
+        this.M = populationSize;
+            this.populationTSP = initTSPForTestingResult();
+            this.populationKP = null;
+    }
+
 
     public List<GENETIC_TSP.GenomeTSP> getPopulationTSP() {
         return populationTSP;
@@ -59,6 +66,20 @@ public class Population {
         list.add(genome);
         for (int i = 1; i < M; i++) {
             List<GENETIC_TSP.GeneTSP> shuffledGenes = new ArrayList<>(genome.getGenome());
+            Collections.shuffle(shuffledGenes);
+            GENETIC_TSP.GenomeTSP newGenome = new GENETIC_TSP.GenomeTSP(shuffledGenes);
+            list.add(newGenome);
+        }
+        return list;
+    }
+
+
+    private List<GENETIC_TSP.GenomeTSP> initTSPForTestingResult() {
+        List<GENETIC_TSP.GenomeTSP> list = new ArrayList<>();
+        GENETIC_TSP.GenomeTSP preparedSolution = GenomeTSP.createSolution();
+        list.add(preparedSolution);
+        for (int i = 1; i < preparedSolution.getGenome().size(); i++) {
+            List<GENETIC_TSP.GeneTSP> shuffledGenes = new ArrayList<>(preparedSolution.getGenome());
             Collections.shuffle(shuffledGenes);
             GENETIC_TSP.GenomeTSP newGenome = new GENETIC_TSP.GenomeTSP(shuffledGenes);
             list.add(newGenome);
