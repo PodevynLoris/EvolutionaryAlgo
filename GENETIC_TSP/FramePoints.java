@@ -13,18 +13,27 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class FramePoints extends JFrame {
     Population pop ;
     LineDemo ln ;
+
+    JPanel settingPanel ;
+
+    JButton start ;
+
+    MainFrame frame ;
 
     private XYSeriesCollection  dataset;
     private JFreeChart chart;
 
     private XYSeries bestFitnessSeries;
     private XYSeries bestSoFarSeries;
-    public FramePoints(Population population){
+    public FramePoints(Population population, MainFrame frame){
         this.pop = population ;
+        this.frame = frame ;
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int) (screenSize.getWidth() * 0.8);
         int height = (int) (screenSize.getHeight() * 0.8);
@@ -35,6 +44,7 @@ public class FramePoints extends JFrame {
 
         this.add(BorderLayout.CENTER, ln = new LineDemo(pop)) ;
         createChartPanel();
+        createSettingPanel();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
 
@@ -68,6 +78,36 @@ public class FramePoints extends JFrame {
 
         add(BorderLayout.NORTH,chartPanel) ;
 
+    }
+
+    private void createStartButton(){
+        start = new JButton("Start") ;
+        start.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Evolve evolution1 = new Evolve(frame) ;
+                evolution1.setChoice(1);
+                //add(BorderLayout.CENTER, ln = new LineDemo(evolution1.getPopulation())) ;
+                ln.setPopulation(evolution1.getPopulation());
+                evolution1.startEvolution(5);
+
+            }
+        });
+        settingPanel.add(start) ;
+
+    }
+
+    private void createSettingPanel(){
+
+        settingPanel = new JPanel() ;
+        settingPanel.setBackground(new Color(224, 178, 129));
+        settingPanel.setLayout(new BoxLayout(settingPanel, BoxLayout.PAGE_AXIS));
+        settingPanel.setVisible(true);
+        createStartButton();
+
+
+        add(BorderLayout.WEST,settingPanel) ;
     }
 
     public void updateChart(double bestFitness, double bestSoFarFitness, int generation) {

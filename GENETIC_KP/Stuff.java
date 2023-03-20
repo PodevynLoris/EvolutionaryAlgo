@@ -10,12 +10,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 5;
+            return 91;
         }
 
         @Override
         public int getWeight() {
-            return 6;
+            return 84;
         }
 
     },
@@ -27,12 +27,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 6;
+            return 72;
         }
 
         @Override
         public int getWeight() {
-            return 6;
+            return 83;
         }
 
     },
@@ -44,12 +44,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 4;
+            return 90;
         }
 
         @Override
         public int getWeight() {
-            return 2;
+            return 43;
         }
 
     },
@@ -61,12 +61,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 3;
+            return 46;
         }
 
         @Override
         public int getWeight() {
-            return 1;
+            return 4;
         }
 
     },
@@ -78,12 +78,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 2;
+            return 55;
         }
 
         @Override
         public int getWeight() {
-            return 3;
+            return 44;
         }
 
     },
@@ -95,12 +95,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 5;
+            return 8;
         }
 
         @Override
         public int getWeight() {
-            return 2;
+            return 6;
         }
 
     },
@@ -112,12 +112,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 6;
+            return 35;
         }
 
         @Override
         public int getWeight() {
-            return 6;
+            return 82;
         }
 
     },
@@ -129,12 +129,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 1;
+            return 75;
         }
 
         @Override
         public int getWeight() {
-            return 1;
+            return 92;
         }
 
     },
@@ -147,12 +147,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 6;
+            return 61;
         }
 
         @Override
         public int getWeight() {
-            return 2;
+            return 25;
         }
 
     },
@@ -164,12 +164,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 8;
+            return 15;
         }
 
         @Override
         public int getWeight() {
-            return 7;
+            return 83;
         }
 
     },
@@ -181,12 +181,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 2;
+            return 77;
         }
 
         @Override
         public int getWeight() {
-            return 4;
+            return 56;
         }
 
     },
@@ -198,12 +198,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 2;
+            return 40;
         }
 
         @Override
         public int getWeight() {
-            return 4;
+            return 18;
         }
 
     },
@@ -217,12 +217,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 3;
+            return 63;
         }
 
         @Override
         public int getWeight() {
-            return 3;
+            return 58;
         }
 
     },
@@ -234,12 +234,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 4;
+            return 75;
         }
 
         @Override
         public int getWeight() {
-            return 2;
+            return 14;
         }
 
     },
@@ -251,12 +251,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 7;
+            return 29;
         }
 
         @Override
         public int getWeight() {
-            return 1;
+            return 48;
         }
 
     },
@@ -268,12 +268,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 10;
+            return 75;
         }
 
         @Override
         public int getWeight() {
-            return 10;
+            return 70;
         }
 
     },
@@ -285,12 +285,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 9;
+            return 17;
         }
 
         @Override
         public int getWeight() {
-            return 2;
+            return 96;
         }
 
     },
@@ -302,12 +302,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 9;
+            return 78;
         }
 
         @Override
         public int getWeight() {
-            return 3;
+            return 32;
         }
 
     },
@@ -321,12 +321,12 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 1;
+            return 40;
         }
 
         @Override
         public int getWeight() {
-            return 10;
+            return 68;
         }
 
     },
@@ -338,33 +338,16 @@ public enum Stuff
 
         @Override
         public int getUsefulness() {
-            return 10;
+            return 44;
         }
 
         @Override
         public int getWeight() {
-            return 2;
+            return 92;
         }
-
-    },
-    WATERMELON {
-        @Override
-        public String getName() {
-            return "Watermelon";
-        }
-
-        @Override
-        public int getUsefulness() {
-            return 3;
-        }
-
-        @Override
-        public int getWeight() {
-            return 9;
-        }
-
 
     };
+
     public abstract int getWeight();
     public abstract String getName();
     public abstract int getUsefulness();

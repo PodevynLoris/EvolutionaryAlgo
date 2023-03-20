@@ -5,7 +5,7 @@ import GENETIC_KP.Genome;
 import java.util.*;
 
 public class Population {
-    public static final int M = 100;
+    public static final int M = 200;
 
     public List<GENETIC_TSP.GenomeTSP> populationTSP;
     public List<Genome> populationKP;

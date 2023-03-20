@@ -2,6 +2,7 @@ package GENETIC_KP;
 
 
 
+import GENETIC_TSP.Evolve;
 import GENETIC_TSP.GenomeTSP;
 import GENETIC_TSP.Utils;
 
@@ -10,14 +11,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import static GENETIC_TSP.Evolve.CAPACITY;
 
 
 public class Genome {
     //Wondering if the genome should be a list of gene or a list of 0101O0101 etc
     private final List<GENETIC_KP.Gene> genome;
-    public static int N = 50;
+    public static int N = Stuff.values().length;
     private double fitnessKP;
-    public int CAPACITY =20;
+
     public Genome(List<GENETIC_KP.Gene> genome) {
         this.genome = Collections.unmodifiableList(genome);
         this.fitnessKP  = 0.0;
@@ -25,7 +27,7 @@ public class Genome {
 
     public Genome() {
         this.genome = new ArrayList<>(N);
-        this.fitnessKP = 0.0;
+        fitnessKP();
         // fillOrdered();
     }
 
@@ -38,7 +40,7 @@ public class Genome {
     }
 
     public int getCAPACITY() {
-        return CAPACITY;
+        return N;
     }
 
     public static Genome createGenome() {
@@ -64,8 +66,8 @@ public class Genome {
             if(gene.getInside()==1) {
                 usefulness += gene.getStuff().getUsefulness();
                 weight += gene.getStuff().getWeight();
-                if(weight>getCAPACITY()) {
-                    this.fitnessKP  = 0;
+                if(weight> CAPACITY) {
+                    usefulness  = 0;
                 }
             }
         }

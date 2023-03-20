@@ -3,6 +3,8 @@ package GENETIC_TSP;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class LineDemo extends JPanel {
@@ -65,5 +67,9 @@ public class LineDemo extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         draw(g);
+    }
+
+    public  void setPopulation(Population population){
+        this.population = population ;
     }
 }

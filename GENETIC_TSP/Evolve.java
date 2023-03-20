@@ -4,22 +4,48 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Add the following imports
+
 public class Evolve {
 
+
+
+
     public static int choice = 0;
-    private static final int PRc =80;
+    private static final int PRc=10;
     private static final int PRm = 5;
+    public static int CAPACITY = 879;
 
 
     private Population population;
+    private MainFrame frame ;
+
+
+
+
+
+
+
+
+
+    public Evolve(MainFrame frame){
+        this.frame = frame ;
+        population = new Population();
+    }
+
+
+
 
     public void startEvolution(long delay) {
 
+
+        // MainFrame frame = new MainFrame(population, this) ;
+
         if(choice==1) {
-            population = new Population();
+            // population = new Population();
             System.out.println(population);
             // population.toString() ;
-            FramePoints p = new FramePoints(population) ;
+            //FramePoints p = new FramePoints(population,frame) ;
 
             // FitnessChartSwing chart = new FitnessChartSwing(); // Corrected the class name
             Timer timer = new Timer((int) delay, new ActionListener() {
@@ -34,14 +60,14 @@ public class Evolve {
                     fitness = population.getBestGenomeOfCurrentPopulationTSP().getFitnessTSP();
                     double bestSoFarFitness = population.getBestGenomeTSP().getFitnessTSP();
 
-                    p.getLinedem().repaint();
+                    frame.getframePoints().getLinedem().repaint();
 
 
                     //chart.updateChart(fitness, bestSoFarFitness, generation++);
-                    p.updateChart(fitness,bestSoFarFitness,generation++);
+                    frame.getframePoints().updateChart(fitness,bestSoFarFitness,generation++);
                     //  System.out.println(population);
                     System.out.println("--------------------------------NEW ITERATION :"+generation);
-                    System.out.println(population.getBestGenomeTSP());
+                    System.out.println(population.getBestGenomeKP());
                 }
             });
             timer.setRepeats(true);
@@ -50,7 +76,7 @@ public class Evolve {
         }
         else {
 
-            population = new Population();
+            //population = new Population();
             System.out.println(population);
             // population.toString() ;
             FitnessChartSwing f = new FitnessChartSwing();
@@ -68,15 +94,14 @@ public class Evolve {
                     fitness = population.getBestGenomeOfCurrentPopulationKP().getFitnessKP();
                     double bestSoFarFitness = population.getBestGenomeKP().getFitnessKP();
 
-
-
-
                     //chart.updateChart(fitness, bestSoFarFitness, generation++);
 
                     //  System.out.println(population);
                     f.updateChart(fitness,bestSoFarFitness,generation++);
-                    System.out.println("--------------------------------NEW ITERATION :"+generation);
-                    System.out.println(population.getBestGenomeKP());
+                    frame.getKSframe().updateChart(fitness,bestSoFarFitness,generation);
+
+                    //System.out.println("--------------------------------NEW ITERATION :"+generation);
+                   // System.out.println(population.getBestGenomeOfCurrentPopulationKP());
                 }
             });
             timer.setRepeats(true);
@@ -86,8 +111,25 @@ public class Evolve {
 
     }
 
+    public int getChoice(){
+        return choice ;
+    }
+
+    public void setChoice(int i ){
+        choice = i ;
+    }
+
+
     public static void main(String[] args) {
-        Evolve evolve = new Evolve();
-        evolve.startEvolution(100);
+        // Evolve evolve = new Evolve();
+        //evolve.startEvolution(5);
+        MainFrame frame = new MainFrame() ;
+    }
+
+
+
+
+    public Population getPopulation(){
+        return population ;
     }
 }
