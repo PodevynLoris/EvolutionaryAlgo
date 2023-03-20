@@ -12,7 +12,7 @@ public class Evolve {
 
 
     public static int choice = 0;
-    private static final int PRc=10;
+    private static final int PRc= 70;
     private static final int PRm = 5;
     public static int CAPACITY = 879;
 
@@ -22,19 +22,10 @@ public class Evolve {
 
 
 
-
-
-
-
-
-
     public Evolve(MainFrame frame){
         this.frame = frame ;
         population = new Population();
     }
-
-
-
 
     public void startEvolution(long delay) {
 
@@ -67,7 +58,7 @@ public class Evolve {
                     frame.getframePoints().updateChart(fitness,bestSoFarFitness,generation++);
                     //  System.out.println(population);
                     System.out.println("--------------------------------NEW ITERATION :"+generation);
-                    System.out.println(population.getBestGenomeKP());
+                    System.out.println(population.getBestGenomeTSP());
                 }
             });
             timer.setRepeats(true);
@@ -77,7 +68,7 @@ public class Evolve {
         else {
 
             //population = new Population();
-            System.out.println(population);
+            //System.out.println(population);
             // population.toString() ;
             FitnessChartSwing f = new FitnessChartSwing();
 
@@ -101,7 +92,7 @@ public class Evolve {
                     frame.getKSframe().updateChart(fitness,bestSoFarFitness,generation);
 
                     //System.out.println("--------------------------------NEW ITERATION :"+generation);
-                   // System.out.println(population.getBestGenomeOfCurrentPopulationKP());
+                    System.out.println(population.getBestGenomeOfCurrentPopulationKP());
                 }
             });
             timer.setRepeats(true);

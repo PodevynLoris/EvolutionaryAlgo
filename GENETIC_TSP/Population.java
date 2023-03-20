@@ -5,7 +5,7 @@ import GENETIC_KP.Genome;
 import java.util.*;
 
 public class Population {
-    public static final int M = 200;
+    public int M;
 
     public List<GENETIC_TSP.GenomeTSP> populationTSP;
     public List<Genome> populationKP;
@@ -14,13 +14,15 @@ public class Population {
     GENETIC_TSP.GenomeTSP bestGenomeTSP = new GENETIC_TSP.GenomeTSP();
     Genome bestGenomeKP = new Genome();
     //TODO THERE MIGHT BE A PROBLEM WHEN USING THIS genome because its a new constructor I had to create, with NO parameter, we use it in evaluatePopulationKP
-
     public Population() {
-        if(choice==1) {
+        this(5); // Default population size
+    }
+    public Population(int populationSize) {
+        this.M = populationSize;
+        if (choice == 1) {
             this.populationTSP = initialiseTSPPOP();
             this.populationKP = null;
-        }
-        else {
+        } else {
             this.populationKP = initialiseKPPOP();
             this.populationTSP = null;
         }
