@@ -6,7 +6,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 public class KPSimulation {
-    private static final int NUM_TRIALS = 14;
+    private static final int NUM_TRIALS = 30;
     private Map<String, Integer> results = new HashMap<>();
 
     public KPSimulation() {
@@ -60,11 +60,11 @@ public class KPSimulation {
     public static void main(String[] args) {
         KPSimulation simulation = new KPSimulation();
         // Run experiments with varying parameters
-        int[] crossoverValues = {50, 60, 70, 80, 90, 100};
-        int[] mutationValues = {5, 10, 15, 20};
-        int[] populationSizes = {50, 100, 1000};
+        int[] crossoverValues = {20,30,40,50, 60, 70, 80, 90, 100};
+        int[] mutationValues = {2,3,5, 10, 15, 20,30,40};
+        int[] populationSizes = {50, 100, 500, 1000};
         simulation.runMultipleTrials(crossoverValues, mutationValues, populationSizes);
-        simulation.saveResultsToFile("simulation_results.txt");
+        simulation.saveResultsToFile("KPsimulation_results.txt");
 
     }
 }

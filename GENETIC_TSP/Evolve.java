@@ -9,7 +9,7 @@ public class Evolve {
 
 
     public static int choice = 0;
-    private static final int PRc= 50;
+    private static final int PRc= 70;
     private static final int PRm = 5;
     public static int CAPACITY = 879;
 
