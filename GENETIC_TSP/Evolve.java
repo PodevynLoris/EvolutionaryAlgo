@@ -18,7 +18,6 @@ public class Evolve {
     private MainFrame frame ;
 
 
-
     public Evolve(MainFrame frame){
         this.frame = frame ;
         population = new Population();
@@ -28,6 +27,8 @@ public class Evolve {
         this.choice = choice;
         population = new Population();
     }
+
+
 
     public void startEvolution(long delay) {
 

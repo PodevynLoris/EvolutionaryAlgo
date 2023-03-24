@@ -57,9 +57,13 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                tSframe = new FramePoints(new Population(), f) ;
+                tSframe = new FramePoints(new Population(), f);
+
+                // Trigger the start button click event.
+                tSframe.start.doClick();
             }
         });
+
 
         bg.add(TS) ;
         bg.add(KS) ;
