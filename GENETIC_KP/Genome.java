@@ -15,7 +15,6 @@ import static GENETIC_TSP.Evolve.CAPACITY;
 
 
 public class Genome {
-    //Wondering if the genome should be a list of gene or a list of 0101O0101 etc
     private final List<GENETIC_KP.Gene> genome;
     public static int N = Stuff.values().length;
     private double fitnessKP;
@@ -28,7 +27,6 @@ public class Genome {
     public Genome() {
         this.genome = new ArrayList<>(N);
         fitnessKP();
-        // fillOrdered();
     }
 
     public List<GENETIC_KP.Gene> getGenome() {
@@ -51,7 +49,6 @@ public class Genome {
         final List<GENETIC_KP.Gene> genes = new ArrayList<>();
 
         for (Stuff stuff : stuffList) {
-            //TODO set a threshold for the # of ones and zeros (will help for the initial population)
             int ran = random.nextInt(2);
             genes.add(new GENETIC_KP.Gene(stuff, ran));
         }
@@ -75,14 +72,12 @@ public class Genome {
     }
 
 
-    // Random bit flip
     public void mutateKP() {
         Random random = new Random();
         int ran = random.nextInt(this.genome.size());
         this.genome.get(ran).setInside(Utils.flip(this.genome.get(ran).getInside()));
     }
 
-    // Single Point CrossOver
 
 
     public List<Genome> SPCrossOverKP(final Genome partner) {
@@ -93,7 +88,6 @@ public class Genome {
         Random random = new Random();
         int[] parent1Binary = getBinaryArray();
         int[] parent2Binary = partner.getBinaryArray();
-        //we consider cutting after the end also so length+1
         int indexCut = random.nextInt(parent1Binary.length + 1);
 
         int[][] childrenBinary = swapArrays(parent1Binary, parent2Binary, indexCut);

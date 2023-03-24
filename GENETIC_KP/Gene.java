@@ -6,12 +6,10 @@ public class Gene {
     private  Stuff stuff;
 
 
-    //Constructor
     public Gene(Stuff stuff, int inside) {
         this.stuff = stuff;
         this.inside = inside;
     }
-    //Getters
     public Stuff getStuff() {
         return this.stuff;
     }

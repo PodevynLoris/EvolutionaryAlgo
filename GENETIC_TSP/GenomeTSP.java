@@ -126,35 +126,8 @@ public class GenomeTSP {
         return -1;
     }
 
-   /*public List<GenomeTSP> crossoverTSP(GenomeTSP partner)
-    {
-        List<GENETIC_TSP.GeneTSP> child1 = new ArrayList<>(N);
-        List<GENETIC_TSP.GeneTSP> child2 = new ArrayList<>(N);
-        Random random = new Random();
-        for(int i=0; i<N;i++) {
-            child1.add(this.genome.get(i));
-            child2.add(partner.getGenome().get(i));
-        }
-        System.out.println("CHILD 1"+child1);
-        System.out.println("CHILD 2"+child2);
-        System.out.println(" ");
-        int crossOverPoint = random.nextInt(N);
-        for(int i=0; i<crossOverPoint;i++) {
-            GENETIC_TSP.GeneTSP gene = partner.getGenome().get(i);
-            int index = getGeneIndex(child1, gene);
-            child1.set(index,child1.get(i));
-            child1.set(i,gene);
 
-            gene = this.genome.get(i);
-            index = getGeneIndex(child2, gene);
-            child2.set(index,child2.get(i));
-            child2.set(i,gene);
-        }
-        List<GenomeTSP> offspring = new ArrayList<>();
-        offspring.add(new GenomeTSP(child1));
-        offspring.add(new GenomeTSP(child2));
-        return offspring;
-    }*/
+
 
     public List<GenomeTSP> crossoverTSP(GenomeTSP partner){
 
@@ -291,7 +264,6 @@ public class GenomeTSP {
     public void fillOrdered(){
         ordered = new GeneTSP[N] ;
         for (int i = 0; i < N; i++) {
-            //  ordered.add(partner.getGenome().get(i).getLabel(), partner.getGenome().get(i));
             ordered[genome.get(i).getLabel()] = genome.get(i) ;
         }
     }
