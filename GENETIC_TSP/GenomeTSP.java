@@ -6,7 +6,7 @@ public class GenomeTSP {
 
     private  List<GENETIC_TSP.GeneTSP> genome;
 
-    public static int N = 15;
+    public static int N = 24;
 
     private double fitnessTSP;
 
